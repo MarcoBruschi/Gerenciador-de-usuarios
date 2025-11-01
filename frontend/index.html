@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar — comuniNd</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-1: #0f172a;
+      --bg-2: #0b6eaa;
+      --card: rgba(255,255,255,0.04);
+      --glass: rgba(255,255,255,0.06);
+      --accent: #60a5fa;
+      --accent-2: #7dd3fc;
+      --success: #34d399;
+      --text: #e6eef8;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.08), transparent),
+                  linear-gradient(135deg, var(--bg-1) 0%, #071133 50%, #021226 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      display:grid;
+      place-items:center;
+      padding:32px;
+    }
+
+    .container{
+      width:100%;
+      max-width:960px;
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:40px;
+      align-items:center;
+    }
+
+    .hero{
+      padding:40px;
+      border-radius:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      min-height:320px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .brand{
+      font-weight:700;
+      font-size:28px;
+      letter-spacing:0.2px;
+      color:var(--accent-2);
+      margin-bottom:12px;
+    }
+    .lead{
+      color:rgba(230,238,248,0.9);
+      font-size:18px;
+      line-height:1.4;
+      max-width:560px;
+    }
+
+    .auth-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius:14px;
+      padding:26px;
+      width:100%;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.65);
+      border:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(6px) saturate(120%);
+    }
+
+    .auth-card h2{
+      margin:0 0 6px 0;
+      font-size:20px;
+      color:var(--text);
+    }
+    .auth-card p.subtitle{
+      margin:0 0 18px 0;
+      color:rgba(230,238,248,0.75);
+      font-size:13px;
+    }
+
+    form{display:flex;flex-direction:column;gap:12px}
+    .field{
+      display:flex;flex-direction:column;gap:8px;
+    }
+    label.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+    input[type="text"], input[type="email"], input[type="password"]{
+      height:44px;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.06);
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      color:var(--text);
+      font-size:14px;
+      outline:none;
+      transition:box-shadow .18s, border-color .18s, transform .12s;
+    }
+    input::placeholder{color:rgba(230,238,248,0.45)}
+    input:focus{box-shadow:0 6px 18px rgba(12,28,60,0.45);border-color:var(--accent)}
+
+    .rows{
+      display:flex;gap:10px;
+    }
+    .btn-row{display:flex;gap:12px;margin-top:6px}
+
+    button{
+      cursor:pointer;
+      border:0;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:600;
+      font-size:14px;
+      transition:transform .12s, box-shadow .12s, opacity .12s;
+    }
+    #entrar-btn{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#04243a;
+      box-shadow: 0 8px 20px rgba(96,165,250,0.12);
+      flex:1;
+    }
+    #entrar-btn:hover{transform:translateY(-2px)}
+
+    #criar-btn{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.06);
+      flex:1;
+    }
+    #criar-btn:hover{opacity:0.95}
+
+    .foot{
+      margin-top:14px;
+      font-size:13px;
+      color:rgba(230,238,248,0.6);
+    }
+
+    @media (max-width:920px){
+      .container{grid-template-columns:1fr;gap:18px}
+      .hero{order:2}
+    }
+  </style>
+</head>
+<body>
+  <main class="container" role="main">
+    <section class="hero" aria-hidden="false">
+      <div class="brand">ComuniND</div>
+      <div class="lead">Conecte-se com sua comunidade de forma simples e segura. Crie sua conta ou entre para começar a compartilhar e colaborar.</div>
+    </section>
+
+    <aside class="auth-card" aria-label="Formulário de autenticação">
+      <h2>Entrar / Criar conta</h2>
+      <p class="subtitle">Use seu nome, e-mail e senha para criar uma conta ou entrar em uma existente.</p>
+
+      <form onsubmit="return false;" aria-describedby="help-text">
+        <span style="color: red;" id="erro-mensagem-campo"></span>
+        <div class="field">
+          <label for="nome" class="sr-only">Nome do usuário</label>
+          <input type="text" id="nome" placeholder="Seu nome" aria-label="Nome do usuário">
+        </div>
+
+        <div class="field">
+          <label for="email" class="sr-only">E-mail do usuário</label>
+          <input type="email" id="email" placeholder="nome@exemplo.com" aria-label="E-mail do usuário">
+        </div>
+        
+        <div class="field">
+          <label for="senha" class="sr-only">Senha do usuário</label>
+          <input type="password" id="senha" placeholder="••••••••" aria-label="Senha do usuário">
+        </div>
+
+        <div class="btn-row">
+          <button id="entrar-btn" type="button">Fazer Login</button>
+          <button id="criar-btn" type="button">Criar Conta</button>
+        </div>
+
+        <div id="help-text" class="foot">Ao criar uma conta, você aceita nossos termos. Nadinha será enviado sem sua permissão.</div>
+      </form>
+    </aside>
+  </main>
+
+  <script src="./index.js"></script>
+</body>
+</html>

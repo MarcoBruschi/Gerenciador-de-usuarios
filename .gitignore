@@ -1,0 +1,35 @@
+# ----------------------------------------
+# ARQUIVO .gitignore PARA PROJETO FULL STACK (NODE.JS + VANILLA JS)
+# ----------------------------------------
+
+# 1. DEPENDÊNCIAS
+# Ignora a pasta de módulos de dependências, que é grande e é recriada com 'npm install'.
+# O asterisco duplo (**) garante que ignora node_modules em subdiretórios (ex: backend/node_modules).
+**/node_modules
+
+# 2. ARQUIVOS SENSÍVEIS E DE AMBIENTE
+# Ignora arquivos de variáveis de ambiente que contêm credenciais do banco de dados, senhas, etc.
+# É uma boa prática ter um .env para o backend e, se necessário, outro para o frontend.
+.env
+
+# 3. ARQUIVOS DE LOGS E DEBUG
+# Ignora logs gerados pelo NPM e outros processos de debug.
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+*.log
+
+# 4. ARQUIVOS DO SISTEMA E DO EDITOR
+# Ignora arquivos de cache de editors comuns como VS Code.
+.vscode/
+.DS_Store
+
+# 5. ARQUIVOS DE BUILD/DIST (APENAS SE APLICÁVEL)
+# Se você decidir empacotar o frontend, ignore a pasta de saída.
+# Ex:
+# /frontend/dist
+# /frontend/build
+
+# ----------------------------------------
+# FIM DO .gitignore
+# ----------------------------------------
