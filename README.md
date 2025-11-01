@@ -39,7 +39,7 @@ O backend reside na pasta `/backend` (recomendado).
     ```
 
 2.  **Configuração do Banco de Dados:**
-    * [cite_start]Crie um banco de dados MySQL chamado exatamente **`bancoteste`**.
+    * Crie um banco de dados MySQL chamado exatamente **`bancoteste`**.
     * Execute o seguinte código SQL para criar a tabela `usuarios`:
 
         ```sql
@@ -62,7 +62,7 @@ O backend reside na pasta `/backend` (recomendado).
         DATABASE=bancoteste
         PORT=3000
         ```
-    > **Atenção:** Certifique-se de que o arquivo `.env` está listado no seu `.gitignore` para não expor suas credenciais. [cite_start]Seus arquivos de backend usam as variáveis `HOST`, `USER`, `PASSWORD`, `DATABASE` e `PORT`.
+    > **Atenção:** Certifique-se de que o arquivo `.env` está listado no seu `.gitignore` para não expor suas credenciais. Seus arquivos de backend usam as variáveis `HOST`, `USER`, `PASSWORD`, `DATABASE` e `PORT`.
 
 4.  **Inicie o Servidor:**
     ```bash
