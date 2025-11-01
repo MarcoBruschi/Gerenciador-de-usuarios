@@ -7,7 +7,7 @@ Um projeto de demonstração **Full Stack** que implementa um **Sistema CRUD de 
 ## 🌟 Recursos Principais
 
 * **CRUD Completo:** Listagem, visualização, criação, edição e exclusão de usuários.
-* **Autenticação Simples:** Funcionalidades de Cadastro (`POST /usuarios`) e Login (`GET /usuarios`).
+* **Autenticação Simples:** Funcionalidades de Cadastro (`POST /usuarios`) e Login (`POST /usuarios/login`).
 * **Backend Robustos:** Utilização de `express` e tratamento de erros (status 400, 404, 500) para todas as rotas.
 * **Conexão Segura com DB:** Uso de `dotenv` e variáveis de ambiente para gerenciar as credenciais do MySQL.
 
@@ -84,8 +84,9 @@ A API roda em `http://localhost:3000`.
 
 | Método | Rota | Descrição | Implementação (Arquivo) |
 | :--- | :--- | :--- | :--- |
-| `GET` | `/usuarios` | Retorna todos os usuários. Usado também para validar o Login. | `app.js` |
+| `GET` | `/usuarios` | Retorna todos os usuários. | `app.js` |
 | `GET` | `/usuarios/:id` | Retorna um usuário específico por ID. | `app.js` |
 | `POST` | `/usuarios` | Cria um novo usuário no banco de dados. | `app.js` |
+| `POST` | `/usuarios/login` | Usado para verificação de login. | `app.js` |
 | `PUT` | `/usuarios/:id` | Atualiza os campos (nome, email, senha) de um usuário. | `app.js` |
 | `DELETE` | `/usuarios/:id` | Exclui um usuário do banco de dados. | `app.js` |
