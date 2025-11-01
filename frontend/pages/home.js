@@ -1,7 +1,8 @@
-async function renderizaUsuarios() {
+async function renderizaUsuarios(filtrados) {
   const users = await fectchUsuarios();
   const section = document.getElementById('users-section');
-  section.innerHTML = users.map(u => `<div class="user-card">
+  const usersFiltrados = filtrados ? users.filter(u => (u.nome.toLowerCase().includes(filtrados))|| (u.email.toLowerCase().includes(filtrados))) : users;
+  section.innerHTML = usersFiltrados.map(u => `<div class="user-card">
       <div class="user-info">
         <div class="user-name">${u.nome}</div>
         <div class="user-email">${u.email}</div>
@@ -85,6 +86,11 @@ window.addEventListener("click", function (event) {
   const deleteModal = document.getElementById("modal-delete");
   if (event.target === editModal) closeEditModal();
   if (event.target === deleteModal) closeDeleteModal();
+});
+
+document.getElementById("search").addEventListener("input", (e) => {
+  const digitado = e.target.value;
+  renderizaUsuarios(digitado);
 });
 
 async function fectchUsuarios() {
