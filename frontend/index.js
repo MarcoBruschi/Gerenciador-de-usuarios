@@ -57,19 +57,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
       }
       try {
-        const req = await fetch("http://localhost:3000/usuarios/");
+        const user = {
+          email:email.value,
+          senha: senha.value
+        }
+        const req = await fetch("http://localhost:3000/usuarios/login", {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(user),
+        });
         const res = await req.json();
-        if (!Array.isArray(res)) {
-          mensagem('erro', mensagemErro, res.message || 'Erro ao buscar usuários.');
-          return;
-        }
-        const user = res.find(u => u.email === email.value);
-        if (!user) {
-          mensagem('erro', mensagemErro, 'Usuário não encontrado.');
-          return;
-        }
-        if (user.senha !== senha.value) {
-          mensagem('erro', mensagemErro, 'Senha incorreta.');
+        if (!req.ok) {
+          mensagem('erro', mensagemErro, res.message || 'Erro ao fazer login.');
           return;
         }
         resetForm();
