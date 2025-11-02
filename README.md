@@ -2,7 +2,7 @@
 
 ## 📝 Descrição do Projeto
 
-Um projeto de demonstração **Full Stack** que implementa um **Sistema CRUD de Usuários** completo. O Backend é uma API RESTful robusta desenvolvida com **Node.js** e **Express**, utilizando o pacote `mysql2` para persistência de dados. O Frontend é básico construído com **HTML, CSS e JavaScript Puro **, mostrando a comunicação assíncrona com a API.
+Um projeto de demonstração **Full Stack** que implementa um **Sistema CRUD de Usuários** completo. O Backend é uma API RESTful robusta desenvolvida com **Node.js** e **Express**, utilizando o pacote `mysql2` para persistência de dados. O Frontend é básico, construído com **HTML, CSS e JavaScript Puro **, mostrando a comunicação assíncrona com a API.
 
 ## 🌟 Recursos Principais
 
